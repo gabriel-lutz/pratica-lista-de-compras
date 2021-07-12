@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -8,10 +9,14 @@ export default function InsertForm({ onAddItem }) {
     e.preventDefault();
 
     const newItem = { text };
-    
-
-    setText("");
-    onAddItem();
+    const promisse = axios.post(`http://localhost:4000/items`, newItem)
+    promisse.then(()=>{
+      setText("");
+      onAddItem();
+    })
+    promisse.catch(()=>{
+      alert("Tente novamente mais tarde.")
+    })
   }
 
   return (
