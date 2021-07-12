@@ -8,7 +8,7 @@ export default function InsertForm({ onAddItem }) {
     e.preventDefault();
 
     const newItem = { text };
-    // Save item to server
+    
 
     setText("");
     onAddItem();
